@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>❓ Ayuda - Automatización de Reportes</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .main-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            margin: 2rem auto;
+            max-width: 900px;
+        }
+        
+        .header-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 20px 20px 0 0;
+            text-align: center;
+        }
+        
+        .content-section {
+            padding: 3rem 2rem;
+        }
+        
+        .help-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 5px solid #667eea;
+        }
+        
+        .step-number {
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+        
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            margin: 1rem;
+        }
+        
+        .accordion-button:not(.collapsed) {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .accordion-button:focus {
+            box-shadow: 0 0 0 0.25rem rgba(102, 126, 234, 0.25);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 25px;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .code-block {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            padding: 1rem;
+            font-family: 'Courier New', monospace;
+            margin: 1rem 0;
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .success-box {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="/">
+                <i class="fas fa-chart-line me-2"></i>
+                Automatización de Reportes
+            </a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="/help">
+                    <i class="fas fa-question-circle me-1"></i>Ayuda
+                </a>
+                <a class="nav-link" href="/about">
+                    <i class="fas fa-info-circle me-1"></i>Acerca de
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <div class="main-container">
+            <!-- Header Section -->
+            <div class="header-section">
+                <h1>
+                    <i class="fas fa-question-circle me-3"></i>
+                    Centro de Ayuda
+                </h1>
+                <p class="mb-0">
+                    Todo lo que necesitas saber para usar la herramienta de automatización de reportes
+                </p>
+            </div>
+
+            <!-- Content Section -->
+            <div class="content-section">
+                <!-- Quick Start Guide -->
+                <div class="help-card">
+                    <h3>
+                        <i class="fas fa-rocket me-2"></i>
+                        Guía de Inicio Rápido
+                    </h3>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <span class="step-number">1</span>
+                                <div>
+                                    <h5>Sube tu archivo</h5>
+                                    <p class="text-muted mb-0">Arrastra y suelta tu archivo CSV o Excel</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <span class="step-number">2</span>
+                                <div>
+                                    <h5>Revisa los datos</h5>
+                                    <p class="text-muted mb-0">Verifica el resumen y vista previa</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <span class="step-number">3</span>
+                                <div>
+                                    <h5>Configura el reporte</h5>
+                                    <p class="text-muted mb-0">Agrega título y destinatarios</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <span class="step-number">4</span>
+                                <div>
+                                    <h5>¡Listo!</h5>
+                                    <p class="text-muted mb-0">Descarga o envía por email</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Accordion -->
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                <i class="fas fa-file-upload me-2"></i>
+                                ¿Qué formatos de archivo acepta la herramienta?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                <p>La herramienta acepta los siguientes formatos:</p>
+                                <ul>
+                                    <li><strong>CSV (.csv):</strong> Archivos de valores separados por comas</li>
+                                    <li><strong>Excel (.xlsx):</strong> Archivos de Excel modernos</li>
+                                    <li><strong>Excel (.xls):</strong> Archivos de Excel antiguos</li>
+                                </ul>
+                                <div class="warning-box">
+                                    <i class="fas fa-exclamation-triangle me-2"></i>
+                                    <strong>Importante:</strong> El tamaño máximo del archivo es 16MB
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                <i class="fas fa-broom me-2"></i>
+                                ¿Qué tipo de limpieza automática se aplica?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                <p>La herramienta realiza las siguientes operaciones de limpieza automáticamente:</p>
+                                <ul>
+                                    <li><strong>Eliminación de duplicados:</strong> Remueve registros idénticos</li>
+                                    <li><strong>Limpieza de filas vacías:</strong> Elimina filas completamente vacías</li>
+                                    <li><strong>Normalización de fechas:</strong> Convierte fechas a formato estándar</li>
+                                    <li><strong>Conversión de tipos:</strong> Identifica y convierte columnas numéricas</li>
+                                    <li><strong>Manejo de valores faltantes:</strong> Rellena valores vacíos apropiadamente</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                <i class="fas fa-chart-bar me-2"></i>
+                                ¿Qué tipos de gráficos se generan automáticamente?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                <p>La herramienta genera automáticamente los siguientes tipos de gráficos:</p>
+                                <ul>
+                                    <li><strong>Gráficos de barras:</strong> Para distribuciones de valores numéricos</li>
+                                    <li><strong>Gráficos de pastel:</strong> Para mostrar proporciones por categorías</li>
+                                    <li><strong>Gráficos de línea:</strong> Para series temporales</li>
+                                    <li><strong>Histogramas:</strong> Para distribuciones de frecuencias</li>
+                                    <li><strong>Matrices de correlación:</strong> Para relaciones entre variables</li>
+                                </ul>
+                                <div class="success-box">
+                                    <i class="fas fa-lightbulb me-2"></i>
+                                    <strong>Tip:</strong> Los gráficos se seleccionan automáticamente según el tipo de datos detectado
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                                <i class="fas fa-envelope me-2"></i>
+                                ¿Cómo configuro el envío por email?
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                <p>Para configurar el envío por email, sigue estos pasos:</p>
+                                
+                                <h6>1. Crear archivo .env</h6>
+                                <div class="code-block">
+                                    EMAIL_USER=tu_correo@gmail.com<br>
+                                    EMAIL_PASSWORD=tu_contraseña_de_aplicacion<br>
+                                    SMTP_SERVER=smtp.gmail.com<br>
+                                    SMTP_PORT=587
+                                </div>
+                                
+                                <h6>2. Configurar Gmail (si usas Gmail)</h6>
+                                <ul>
+                                    <li>Ve a Configuración de tu cuenta Google</li>
+                                    <li>Seguridad → Contraseñas de aplicación</li>
+                                    <li>Crea una nueva contraseña de aplicación</li>
+                                    <li>Usa esa contraseña en el archivo .env</li>
+                                </ul>
+                                
+                                <div class="warning-box">
+                                    <i class="fas fa-shield-alt me-2"></i>
+                                    <strong>Seguridad:</strong> Nunca uses tu contraseña normal de Gmail. Siempre usa contraseñas de aplicación.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFive">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive">
+                                <i class="fas fa-exclamation-triangle me-2"></i>
+                                ¿Qué hago si el email no llega?
+                            </button>
+                        </h2>
+                        <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                <p>Si el email no llega, verifica lo siguiente:</p>
+                                <ul>
+                                    <li><strong>Revisa la carpeta de spam:</strong> Los emails pueden ir a spam</li>
+                                    <li><strong>Verifica las credenciales:</strong> Asegúrate de que EMAIL_USER y EMAIL_PASSWORD estén correctos</li>
+                                    <li><strong>Contraseña de aplicación:</strong> Para Gmail, usa una contraseña de aplicación, no tu contraseña normal</li>
+                                    <li><strong>Configuración SMTP:</strong> Verifica que SMTP_SERVER y SMTP_PORT estén correctos</li>
+                                    <li><strong>Firewall/Antivirus:</strong> Algunos programas pueden bloquear el envío</li>
+                                </ul>
+                                
+                                <div class="success-box">
+                                    <i class="fas fa-info-circle me-2"></i>
+                                    <strong>Tip:</strong> Puedes probar la conexión de email desde la página principal
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingSix">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix">
+                                <i class="fas fa-file-excel me-2"></i>
+                                ¿Qué contiene el reporte Excel generado?
+                            </button>
+                        </h2>
+                        <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                <p>El reporte Excel incluye las siguientes hojas:</p>
+                                <ul>
+                                    <li><strong>Resumen Ejecutivo:</strong> Estadísticas principales y hallazgos clave</li>
+                                    <li><strong>Datos:</strong> Dataset completo con limpieza aplicada</li>
+                                    <li><strong>Gráficos:</strong> Visualizaciones automáticas con datos</li>
+                                    <li><strong>Análisis:</strong> Estadísticas descriptivas detalladas</li>
+                                </ul>
+                                
+                                <div class="success-box">
+                                    <i class="fas fa-star me-2"></i>
+                                    <strong>Característica:</strong> Los gráficos son interactivos y se actualizan automáticamente con los datos
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Troubleshooting -->
+                <div class="help-card">
+                    <h3>
+                        <i class="fas fa-tools me-2"></i>
+                        Solución de Problemas Comunes
+                    </h3>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5><i class="fas fa-file-upload me-2"></i>Error al subir archivo</h5>
+                            <ul>
+                                <li>Verifica que el archivo sea CSV o Excel</li>
+                                <li>Asegúrate de que no exceda 16MB</li>
+                                <li>Revisa que el archivo no esté corrupto</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5><i class="fas fa-chart-bar me-2"></i>No se generan gráficos</h5>
+                            <ul>
+                                <li>Verifica que haya columnas numéricas</li>
+                                <li>Asegúrate de que los datos no estén vacíos</li>
+                                <li>Revisa que las columnas tengan nombres claros</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5><i class="fas fa-envelope me-2"></i>Error de email</h5>
+                            <ul>
+                                <li>Verifica las credenciales en .env</li>
+                                <li>Usa contraseña de aplicación para Gmail</li>
+                                <li>Revisa que el puerto 587 esté abierto</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5><i class="fas fa-download me-2"></i>Error al descargar</h5>
+                            <ul>
+                                <li>Verifica que el reporte se haya generado</li>
+                                <li>Revisa los permisos de la carpeta reports</li>
+                                <li>Intenta generar el reporte nuevamente</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact -->
+                <div class="text-center">
+                    <a href="/" class="btn btn-primary btn-lg">
+                        <i class="fas fa-home me-2"></i>
+                        Volver al Inicio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

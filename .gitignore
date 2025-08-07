@@ -1,0 +1,36 @@
+# Archivos de configuración con información sensible
+.env
+config.txt
+*.key
+*.pem
+
+# Archivos temporales y de sistema
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.log
+.DS_Store
+Thumbs.db
+
+# Entornos virtuales
+venv/
+env/
+ENV/
+
+# Archivos de reportes generados (opcional, puedes comentar si quieres incluirlos)
+reports/*.pdf
+reports/*.xlsx
+uploads/*.csv
+uploads/*.xlsx
+
+# Archivos de IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Archivos de configuración local
+instance/
+.webassets-cache

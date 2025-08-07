@@ -1,0 +1,56 @@
+    Desarrolla una herramienta de automatización de reportes con las siguientes características; asegúrate de redactar los comentarios y el README en un tono natural, humano y amistoso – como si lo hubiera realizado un desarrollador experimentado que documenta para colegas y para sí mismo a futuro. Todo debe estar explicado en español claro.
+
+Estructura general
+El proyecto es un script en Python (puede dividirse en módulos si es útil) cuya función es:
+
+Recibir archivos de datos (CSV/Excel) cargados por el usuario.
+
+Limpiar y procesar los datos (eliminar duplicados, cambiar tipos, normalizar campos clave).
+
+Generar reportes automáticos (archivos Excel y PDF con resúmenes y gráficos simples).
+
+Enviar el reporte generado por correo electrónico a una lista suministrada.
+
+Provee instrucciones (README) de uso práctico escritas como si fueran recomendaciones personales.
+
+1. Inicialización del proyecto
+Explica brevemente en el README qué resuelve la aplicación, por qué la creaste y cómo puede ayudar a cualquier equipo de trabajo con tareas repetitivas de generación de reportes.
+
+Usa un entorno virtual para aislar dependencias.
+
+Indica con comandos claros cómo crear y activar el entorno, e instalar las dependencias necesarias (pandas, openpyxl, matplotlib, smtplib, email, pdfkit, flask para interfaz web básica).
+
+2. Carga y limpieza de datos
+Ingresa un buen bloque de comentarios donde expliques el razonamiento detrás de cada paso de limpieza (por ejemplo: “Eliminamos duplicados porque pueden falsear los resultados. También es recomendable normalizar fechas para evitar problemas posteriores…”).
+
+Si se usa Flask, explícalo brevemente en comentarios y en el README, asegurando que la interfaz sea lo suficientemente intuitiva para alguien sin experiencia técnica.
+
+3. Generación de reportes
+Incluye funciones comentadas y humanizadas:
+
+Creación de reportes en Excel y PDF, con tablas resumen y gráficos de barras o pie, según corresponda.
+
+Ejemplo: “Aquí generamos el gráfico porque una imagen vale más que mil palabras cuando presentamos datos al jefe 😊.”
+
+Los nombres de las funciones y variables deben ser descriptivos y los comentarios deben explicar por qué se usó cierto procedimiento, no solo qué hace.
+
+4. Envío automático de reportes por correo
+Explica cómo configurar el correo saliente (idealmente usando variables de entorno o un archivo .env, enfatizando la importancia de no compartir contraseñas).
+
+Incluye ejemplos de uso con comentarios del tipo: “Recuerda revisar la carpeta de spam si el reporte no llega al correo principal.”
+
+Aclara posibles errores comunes (por ejemplo: “Si tu proveedor bloquea el acceso poco seguro, te recomiendo crear una contraseña de aplicación”).
+
+5. Interfaz web (opcional, pero recomendada)
+Permite subir el archivo de datos y ver/descargar el reporte desde el navegador.
+
+Usa plantilla HTML sencilla y layout claro (con Materialize o Bootstrap si lo ves útil).
+
+Agrega mensajes y títulos amigables, por ejemplo: “¡Sube tu archivo y relájate, que nosotros hacemos el trabajo pesado!”
+
+6. README y ejemplo de uso
+Crea un README en tono humano: comienza contando brevemente el “porqué” del proyecto, cómo usarlo en la vida real y qué problemas resuelve.
+
+Incluye ejemplos reales (como: “...esto me ayudó a ahorrar 2 horas cada lunes al generar reportes para el área de ventas…”).
+
+Añade una sección “Preguntas frecuentes” y otra “Posibles errores y cómo resolverlos”, usando un lenguaje cercano y práctico.

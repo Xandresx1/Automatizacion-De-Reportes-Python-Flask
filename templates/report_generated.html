@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📊 Reporte Generado - Automatización de Reportes</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .main-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            margin: 2rem auto;
+            max-width: 800px;
+        }
+        
+        .header-section {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 20px 20px 0 0;
+            text-align: center;
+        }
+        
+        .content-section {
+            padding: 3rem 2rem;
+        }
+        
+        .success-card {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .report-info {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .info-item:last-child {
+            border-bottom: none;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 25px;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            border: none;
+            border-radius: 25px;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            border: none;
+            border-radius: 25px;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+        }
+        
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            margin: 1rem;
+        }
+        
+        .alert {
+            border-radius: 15px;
+            border: none;
+        }
+        
+        .alert-success {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+        }
+        
+        .form-control {
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+            padding: 12px 15px;
+        }
+        
+        .form-control:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .feature-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .feature-list li i {
+            color: #28a745;
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="/">
+                <i class="fas fa-chart-line me-2"></i>
+                Automatización de Reportes
+            </a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="/help">
+                    <i class="fas fa-question-circle me-1"></i>Ayuda
+                </a>
+                <a class="nav-link" href="/about">
+                    <i class="fas fa-info-circle me-1"></i>Acerca de
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <div class="main-container">
+            <!-- Header Section -->
+            <div class="header-section">
+                <h1>
+                    <i class="fas fa-check-circle me-3"></i>
+                    ¡Reporte Generado Exitosamente!
+                </h1>
+                <p class="mb-0">
+                    Tu reporte está listo para descargar o enviar por email
+                </p>
+            </div>
+
+            <!-- Content Section -->
+            <div class="content-section">
+                <!-- Flash Messages -->
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ 'danger' if category == 'error' else 'success' }} alert-dismissible fade show" role="alert">
+                                <i class="fas fa-{{ 'exclamation-triangle' if category == 'error' else 'check-circle' }} me-2"></i>
+                                {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+
+                <!-- Success Card -->
+                <div class="success-card">
+                    <div class="mb-3">
+                        <i class="fas fa-file-excel" style="font-size: 4rem; color: #28a745;"></i>
+                    </div>
+                    <h3>¡Excelente trabajo!</h3>
+                    <p class="mb-0">
+                        Tu reporte ha sido generado con éxito y está listo para usar.
+                    </p>
+                </div>
+
+                <!-- Report Information -->
+                <div class="report-info">
+                    <h4>
+                        <i class="fas fa-info-circle me-2"></i>
+                        Información del Reporte
+                    </h4>
+                    
+                    <div class="info-item">
+                        <span><strong>Título:</strong></span>
+                        <span>{{ report_summary.title }}</span>
+                    </div>
+                    
+                    <div class="info-item">
+                        <span><strong>Generado el:</strong></span>
+                        <span>{{ report_summary.generated_at }}</span>
+                    </div>
+                    
+                    <div class="info-item">
+                        <span><strong>Registros procesados:</strong></span>
+                        <span>{{ report_summary.data_rows | int }}</span>
+                    </div>
+                    
+                    <div class="info-item">
+                        <span><strong>Gráficos creados:</strong></span>
+                        <span>{{ report_summary.charts_created | int }}</span>
+                    </div>
+                    
+                    <div class="info-item">
+                        <span><strong>Archivo:</strong></span>
+                        <span>{{ excel_filename }}</span>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="text-center mb-4">
+                    <a href="{{ url_for('download_report', filename=excel_filename) }}" class="btn btn-success btn-lg me-3">
+                        <i class="fas fa-download me-2"></i>
+                        Descargar Reporte
+                    </a>
+                    <a href="/" class="btn btn-secondary btn-lg">
+                        <i class="fas fa-home me-2"></i>
+                        Inicio
+                    </a>
+                </div>
+
+                <!-- Email Section -->
+                {% if recipients %}
+                <div class="card">
+                    <div class="card-body">
+                        <h4>
+                            <i class="fas fa-envelope me-2"></i>
+                            Enviar por Email
+                        </h4>
+                        
+                        <p class="text-muted">
+                            El reporte se enviará automáticamente a los siguientes destinatarios:
+                        </p>
+                        
+                        <ul class="feature-list">
+                            {% for recipient in recipients %}
+                                <li>
+                                    <i class="fas fa-user"></i>
+                                    {{ recipient }}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                        
+                        <form action="{{ url_for('send_email') }}" method="post" id="emailForm">
+                            <input type="hidden" name="excel_filename" value="{{ excel_filename }}">
+                            <input type="hidden" name="recipients" value="{{ recipients | join(', ') }}">
+                            
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-lg" id="sendEmailBtn">
+                                    <i class="fas fa-paper-plane me-2"></i>
+                                    Enviar por Email
+                                </button>
+                            </div>
+                        </form>
+
+                        <!-- Loading Section -->
+                        <div class="loading" id="loadingSection">
+                            <div class="spinner"></div>
+                            <h5>Enviando email...</h5>
+                            <p class="text-muted">Esto puede tomar unos segundos</p>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="card">
+                    <div class="card-body">
+                        <h4>
+                            <i class="fas fa-envelope me-2"></i>
+                            Enviar por Email
+                        </h4>
+                        
+                        <p class="text-muted mb-3">
+                            ¿Quieres enviar el reporte por email? Agrega los destinatarios:
+                        </p>
+                        
+                        <form action="{{ url_for('send_email') }}" method="post" id="emailForm">
+                            <input type="hidden" name="excel_filename" value="{{ excel_filename }}">
+                            
+                            <div class="mb-3">
+                                <label for="recipients" class="form-label">
+                                    <i class="fas fa-users me-1"></i>
+                                    Destinatarios (emails separados por comas)
+                                </label>
+                                <input type="text" class="form-control" id="recipients" name="recipients" 
+                                       placeholder="ejemplo@empresa.com, otro@empresa.com" required>
+                                <div class="form-text">
+                                    <i class="fas fa-info-circle me-1"></i>
+                                    Recuerda revisar la carpeta de spam si el reporte no llega al correo principal
+                                </div>
+                            </div>
+                            
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-lg" id="sendEmailBtn">
+                                    <i class="fas fa-paper-plane me-2"></i>
+                                    Enviar por Email
+                                </button>
+                            </div>
+                        </form>
+
+                        <!-- Loading Section -->
+                        <div class="loading" id="loadingSection">
+                            <div class="spinner"></div>
+                            <h5>Enviando email...</h5>
+                            <p class="text-muted">Esto puede tomar unos segundos</p>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+                <!-- Report Features -->
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h4>
+                            <i class="fas fa-star me-2"></i>
+                            ¿Qué incluye tu reporte?
+                        </h4>
+                        
+                        <ul class="feature-list">
+                            <li>
+                                <i class="fas fa-chart-line"></i>
+                                <strong>Resumen Ejecutivo:</strong> Estadísticas principales y hallazgos clave
+                            </li>
+                            <li>
+                                <i class="fas fa-table"></i>
+                                <strong>Datos Procesados:</strong> Dataset completo con limpieza aplicada
+                            </li>
+                            <li>
+                                <i class="fas fa-chart-bar"></i>
+                                <strong>Gráficos Automáticos:</strong> Visualizaciones generadas automáticamente
+                            </li>
+                            <li>
+                                <i class="fas fa-calculator"></i>
+                                <strong>Análisis Estadístico:</strong> Estadísticas descriptivas detalladas
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Mostrar loading al enviar email
+        document.getElementById('emailForm').addEventListener('submit', function() {
+            document.getElementById('loadingSection').style.display = 'block';
+            document.getElementById('sendEmailBtn').disabled = true;
+        });
+
+        // Validar emails en tiempo real
+        const recipientsInput = document.getElementById('recipients');
+        if (recipientsInput) {
+            recipientsInput.addEventListener('input', function() {
+                const emails = this.value.split(',').map(email => email.trim());
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                
+                let isValid = true;
+                for (let email of emails) {
+                    if (email && !emailRegex.test(email)) {
+                        isValid = false;
+                        break;
+                    }
+                }
+                
+                if (this.value && !isValid) {
+                    this.classList.add('is-invalid');
+                } else {
+                    this.classList.remove('is-invalid');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

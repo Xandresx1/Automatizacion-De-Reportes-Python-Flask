@@ -1,0 +1,15 @@
+# Configuración de Email - Ejemplo
+# Crea un archivo llamado .env en la raíz del proyecto con el siguiente contenido:
+
+EMAIL_USER=tu_correo@gmail.com
+EMAIL_PASSWORD=tu_contraseña_de_aplicacion
+SMTP_SERVER=smtp.gmail.com
+SMTP_PORT=587
+
+# Notas importantes:
+# 1. Para Gmail, necesitas crear una "contraseña de aplicación"
+# 2. Ve a Configuración de tu cuenta Google → Seguridad → Contraseñas de aplicación
+# 3. Crea una nueva contraseña de aplicación y úsala aquí
+# 4. NUNCA uses tu contraseña normal de Gmail
+# 5. Cambia "tu_correo@gmail.com" por tu email real
+# 6. Cambia "tu_contraseña_de_aplicacion" por la contraseña de aplicación generada
