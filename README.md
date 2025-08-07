@@ -1,41 +1,62 @@
 # 🚀 Herramienta de Automatización de Reportes
 
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
+[![Flask](https://img.shields.io/badge/Flask-2.0+-green.svg)](https://flask.palletsprojects.com/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 ## ¿Por qué creé esta herramienta?
 
 Hace unos meses me encontraba pasando 3-4 horas cada lunes generando reportes manualmente para el equipo de ventas. Copiando datos de Excel, creando gráficos uno por uno, y enviando emails con archivos adjuntos. Era tedioso, propenso a errores, y me impedía enfocarme en análisis más importantes.
 
 Esta herramienta nació de esa frustración. Ahora puedo generar reportes completos en minutos, no horas. Y lo mejor: es tan fácil de usar que cualquier miembro del equipo puede hacerlo sin conocimientos técnicos.
 
-## ¿Qué hace exactamente?
+## ✨ Características principales
 
-Esta aplicación te permite:
 - 📊 **Subir archivos de datos** (CSV o Excel) a través de una interfaz web amigable
 - 🧹 **Limpiar automáticamente** los datos (eliminar duplicados, normalizar fechas, etc.)
 - 📈 **Generar reportes** en Excel y PDF con gráficos y tablas resumen
 - 📧 **Enviar automáticamente** los reportes por email a tu lista de destinatarios
+- 🌐 **Interfaz web intuitiva** que no requiere conocimientos técnicos
+- 🔒 **Seguridad** con variables de entorno para credenciales sensibles
 
-## Instalación y Configuración
+## 🚀 Instalación Rápida
 
-### 1. Crear y activar el entorno virtual
+### Prerrequisitos
+- Python 3.8 o superior
+- Git (para clonar el repositorio)
 
+### 1. Clonar el repositorio
+```bash
+git clone https://github.com/BrianDevCo/-Automatizaci-n-de-reportes-con-Python-Flask.git
+cd -Automatizaci-n-de-reportes-con-Python-Flask
+```
+
+### 2. Crear y activar el entorno virtual
+
+**Windows:**
 ```bash
 # Crear el entorno virtual
 python -m venv venv
 
-# Activar el entorno (Windows)
+# Activar el entorno
 venv\Scripts\activate
+```
 
-# Activar el entorno (macOS/Linux)
+**macOS/Linux:**
+```bash
+# Crear el entorno virtual
+python3 -m venv venv
+
+# Activar el entorno
 source venv/bin/activate
 ```
 
-### 2. Instalar dependencias
-
+### 3. Instalar dependencias
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Configurar variables de entorno
+### 4. Configurar variables de entorno
 
 Crea un archivo `.env` en la raíz del proyecto:
 
@@ -46,17 +67,20 @@ SMTP_SERVER=smtp.gmail.com
 SMTP_PORT=587
 ```
 
-**⚠️ Importante:** Para Gmail, necesitas crear una "contraseña de aplicación" en lugar de usar tu contraseña normal. Ve a Configuración de tu cuenta Google → Seguridad → Contraseñas de aplicación.
+**⚠️ Importante:** Para Gmail, necesitas crear una "contraseña de aplicación":
+1. Ve a [Configuración de tu cuenta Google](https://myaccount.google.com/)
+2. Seguridad → Verificación en dos pasos (actívala si no está activa)
+3. Contraseñas de aplicación → Generar nueva contraseña
+4. Usa esa contraseña en el archivo `.env`
 
-### 4. Ejecutar la aplicación
-
+### 5. Ejecutar la aplicación
 ```bash
 python app.py
 ```
 
 Luego abre tu navegador en `http://localhost:5000`
 
-## Cómo usar la herramienta
+## 📖 Cómo usar la herramienta
 
 ### Paso 1: Preparar tus datos
 - Asegúrate de que tu archivo CSV/Excel tenga columnas con nombres claros
@@ -74,7 +98,7 @@ Luego abre tu navegador en `http://localhost:5000`
 - Descárgalo si lo necesitas
 - El reporte se enviará automáticamente a los destinatarios especificados
 
-## Ejemplo de uso real
+## 💡 Ejemplo de uso real
 
 La semana pasada, María del equipo de ventas me pidió un reporte semanal de ventas por región. Antes me hubiera tomado 2 horas. Con esta herramienta:
 
@@ -83,7 +107,7 @@ La semana pasada, María del equipo de ventas me pidió un reporte semanal de ve
 3. Agregué los emails del equipo de ventas (30 segundos)
 4. ¡Listo! El reporte se generó y envió automáticamente en menos de 2 minutos.
 
-## Estructura del proyecto
+## 📁 Estructura del proyecto
 
 ```
 📁 proyecto/
@@ -91,13 +115,16 @@ La semana pasada, María del equipo de ventas me pidió un reporte semanal de ve
 ├── 📄 data_processor.py   # Lógica de procesamiento de datos
 ├── 📄 report_generator.py # Generación de reportes Excel/PDF
 ├── 📄 email_sender.py     # Envío automático de emails
-├── 📄 templates/          # Plantillas HTML
-├── 📄 static/            # Archivos CSS/JS
-├── 📄 reports/           # Reportes generados
-└── 📄 uploads/           # Archivos subidos temporalmente
+├── 📄 requirements.txt    # Dependencias del proyecto
+├── 📄 .env               # Variables de entorno (crear tú)
+├── 📄 .gitignore         # Archivos a ignorar en Git
+├── 📁 templates/         # Plantillas HTML
+├── 📁 static/           # Archivos CSS/JS
+├── 📁 reports/          # Reportes generados
+└── 📁 uploads/          # Archivos subidos temporalmente
 ```
 
-## Preguntas frecuentes
+## ❓ Preguntas frecuentes
 
 ### ¿Qué formatos de archivo acepta?
 - CSV (.csv)
@@ -114,7 +141,7 @@ Sí, todos los reportes se guardan en la carpeta `reports/` con fecha y hora par
 - Verifica que la contraseña de aplicación esté correcta
 - Asegúrate de que el servidor SMTP esté bien configurado
 
-## Posibles errores y cómo resolverlos
+## 🔧 Posibles errores y cómo resolverlos
 
 ### Error: "No se pudo conectar al servidor SMTP"
 - Verifica que `EMAIL_USER` y `EMAIL_PASSWORD` estén correctos
@@ -135,14 +162,24 @@ Sí, todos los reportes se guardan en la carpeta `reports/` con fecha y hora par
 - Asegúrate de que todas las dependencias estén instaladas
 - Revisa que no haya otro proceso usando el puerto 5000
 
-## Contribuir
+## 🤝 Contribuir
 
 Si encuentras un bug o tienes una idea para mejorar la herramienta, ¡me encantaría escucharla! Esta herramienta la hice para mí, pero si te sirve a ti también, ¡mejor aún!
 
-## Licencia
+### Cómo contribuir:
+1. Haz un fork del repositorio
+2. Crea una rama para tu feature (`git checkout -b feature/nueva-funcionalidad`)
+3. Haz commit de tus cambios (`git commit -am 'Agregar nueva funcionalidad'`)
+4. Haz push a la rama (`git push origin feature/nueva-funcionalidad`)
+5. Abre un Pull Request
 
-Este proyecto es de código abierto. Úsalo, modifícalo, compártelo. Solo pido que si lo mejoras, comparte las mejoras con la comunidad.
+## 📄 Licencia
+
+Este proyecto es de código abierto bajo la licencia MIT. Úsalo, modifícalo, compártelo. Solo pido que si lo mejoras, comparte las mejoras con la comunidad.
 
 ---
 
 **¡Espero que esta herramienta te ahorre tanto tiempo como me ha ahorrado a mí!** 🎉
+
+---
+*Desarrollado con ❤️ para automatizar tareas repetitivas y hacer la vida más fácil.*
