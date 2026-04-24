@@ -77,19 +77,19 @@ def upload_file():
         # Verificar si se subió un archivo
         if 'file' not in request.files:
             flash('No se seleccionó ningún archivo', 'error')
-            return redirect(request.url)
+            return redirect(url_for('index'))  # <-- CAMBIO 1
         
         file = request.files['file']
         
         # Verificar si el archivo tiene nombre
         if file.filename == '':
             flash('No se seleccionó ningún archivo', 'error')
-            return redirect(request.url)
+            return redirect(url_for('index'))  # <-- CAMBIO 2
         
         # Verificar extensión del archivo
         if not allowed_file(file.filename):
             flash('Tipo de archivo no permitido. Usa CSV o Excel (.xlsx, .xls)', 'error')
-            return redirect(request.url)
+            return redirect(url_for('index'))  # <-- CAMBIO 3
         
         # Guardar archivo
         filename = secure_filename(file.filename)
